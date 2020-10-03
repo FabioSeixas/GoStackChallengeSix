@@ -1,6 +1,9 @@
-export const formatValue = (value: number): string => {
-  Intl.NumberFormat().format(value);
-  return 's';
+export const formatValue = (value: string | number): string => {
+  const formatedValue = Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(Number(value));
+  return `${formatedValue}`;
 };
 
 export const formatDate = (input: string): string => {
